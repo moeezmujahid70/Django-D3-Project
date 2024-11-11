@@ -1,3 +1,22 @@
 {% extends "base.html" %}
 
 
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 50px;">
+    <h1>Welcome to Django D3 Application!</h1>
+    <p>This is a sample application that demonstrates:</p>
+    <ul style="list-style-type: none;">
+        <li>📊 Dynamic chart rendering using D3.js and Chart.js</li>
+        <li>🔐 Secure login and authentication</li>
+        <li>📡 API data visualization</li>
+    </ul>
+    <p>
+        Navigate using the links in the header to explore more features of the application.
+    </p>
+    <a href="{% url 'chart' %}"
+        style="text-decoration: none; color: white; background-color: #007bff; padding: 10px 20px; border-radius: 5px;">View
+        Charts</a>
+</div>
+{% endblock %}
