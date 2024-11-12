@@ -25,25 +25,22 @@ License: MIT
 Follow these steps to get the project running in development mode.
 
 1. Create and Activate a Virtual Environment
-
-    $ pyenv virtualenv 3.10.9 d3project_env
-    $ pyenv activate d3project_env
-
+    
+    pyenv virtualenv 3.10.9 d3project_env
+    pyenv activate d3project_env
+    
 2. Install Backend Dependencies
-
-    $ pip install -r requirements/local.txt
+    pip install -r requirements/local.txt
 
 4. Install Frontend Dependencies
     $ npm install
 
 5. DataBase SetUp
+    CREATE DATABASE d3project_db;
+    CREATE USER your_user WITH PASSWORD 'your_password';
+    GRANT ALL PRIVILEGES ON DATABASE d3project_db TO your_user;
 
-    $   CREATE DATABASE d3project_db;
-        CREATE USER your_user WITH PASSWORD 'your_password';
-        GRANT ALL PRIVILEGES ON DATABASE d3project_db TO your_user;
-
-6.	Run Migrations:
-    
+6.Run Migrations:
     $ python manage.py migrate
 
 ## Run the Development Server
