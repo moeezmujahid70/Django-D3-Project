@@ -1,15 +1,61 @@
 # DjangoD3Project
 
-sample proj
+This project demonstrates how to:
+	•	Render a sample D3 chart upon login.
+	•	Provide chart data via a protected REST API.
+	•	Use JWT for authentication.
+
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 License: MIT
 
+
+## Prerequisites
+
+	•	Python (3.10+)
+	•	Node.js (for frontend dependencies)
+	•	PostgreSQL (for the database)
+	•	Virtual Environment: pyenv and pyenv-virtualenv
+
+
+## Getting Started
+
+Follow these steps to get the project running in development mode.
+
+1. Create and Activate a Virtual Environment
+
+    $ pyenv virtualenv 3.10.9 d3project_env
+    $ pyenv activate d3project_env
+
+2. Install Backend Dependencies
+
+    $ pip install -r requirements/local.txt
+
+4. Install Frontend Dependencies
+    $ npm install
+
+5. DataBase SetUp
+
+    $   CREATE DATABASE d3project_db;
+        CREATE USER your_user WITH PASSWORD 'your_password';
+        GRANT ALL PRIVILEGES ON DATABASE d3project_db TO your_user;
+
+6.	Run Migrations:
+    
+    $ python manage.py migrate
+
+## Run the Development Server
+    $ python manage.py runserver
+
+Access the project at http://127.0.0.1:8000/.
+
+
 ## Settings
 
 Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getting-started/settings.html).
+
 
 ## Basic Commands
 
@@ -28,32 +74,3 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 Running type checks with mypy:
 
     $ mypy d3project
-
-### Test coverage
-
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
-
-## Deployment
-
-The following details how to deploy this application.
-
-### Custom Bootstrap Compilation
-
-The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v5 is installed using npm and customised by tweaking your variables in `static/sass/custom_bootstrap_vars`.
-
-You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/v5.1.3/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
-
-Bootstrap's javascript as well as its dependencies are concatenated into a single file: `static/js/vendors.js`.
